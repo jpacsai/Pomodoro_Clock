@@ -7,7 +7,7 @@ import Display from './Display';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div id='app'>
         <h1 className='title'>Pomodoro Clock</h1>
         <LengthControl />
         <Display />

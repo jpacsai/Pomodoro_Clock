@@ -1,5 +1,20 @@
 body {
-  margin: 0;
-  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #CECECE;
   font-family: sans-serif;
+  color: white;
+}
+
+#app {
+  width: 500px;
+  height: 500px;
+  background-color: #FF4444;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
