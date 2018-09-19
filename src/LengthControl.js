@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import sessionLengthAction from './actions/sessionLengthAction';
+import breakLengthAction from './actions/breakLengthAction';
 
 class LengthControl extends Component {
   render() {
@@ -9,11 +11,21 @@ class LengthControl extends Component {
           <section id='break-container'>
             <h2 id='break-label'>Break length</h2>
             <div id='break-set' className='length-set'>
-              <button id='break-decrement' className='control-btn'>
+              <button
+                id='break-decrement'
+                className='control-btn'
+                onClick={(event) => {
+                  breakLengthAction(event);
+                } }>
                 <i className="fas fa-angle-down"></i>
               </button>
               <div id='break-length' className='length-display'>5</div>
-              <button id='break-increment' className='control-btn'>
+              <button
+                id='break-increment'
+                className='control-btn'
+                onClick={(event) => {
+                  breakLengthAction(event);
+                } }>
                 <i className="fas fa-angle-up"></i>
               </button>
             </div>
@@ -37,13 +49,15 @@ class LengthControl extends Component {
 
 function mapStateToProps(state) {
 	return {
-
+    sessionLength: state.sessionLength,
+    breakLength: state.breakLength
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-
+    sessionLengthAction,
+    breakLengthAction
 	}, dispatch);
 }
 
