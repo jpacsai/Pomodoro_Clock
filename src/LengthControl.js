@@ -6,6 +6,9 @@ import breakLengthAction from './actions/breakLengthAction';
 
 class LengthControl extends Component {
   render() {
+
+    const { breakLengthAction, breakLength } = this.props;
+
     return (
         <div className='length-container'>
           <section id='break-container'>
@@ -19,7 +22,7 @@ class LengthControl extends Component {
                 } }>
                 <i className="fas fa-angle-down"></i>
               </button>
-              <div id='break-length' className='length-display'>5</div>
+              <div id='break-length' className='length-display'>{breakLength}</div>
               <button
                 id='break-increment'
                 className='control-btn'

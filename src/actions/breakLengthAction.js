@@ -1,8 +1,7 @@
 export default function breakLengthAction(event) {
-
-    const key = event.target.id;
+    console.log(event.target.id)
     
-    const type = 0 ? 'INCREMENT_BREAK' : 'DECREMENT_BREAK';
+    const type = 'break-increment' ? 'INCREMENT_BREAK' : 'DECREMENT_BREAK';
 
     return {
         type

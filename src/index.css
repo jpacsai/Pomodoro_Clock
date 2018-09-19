@@ -46,6 +46,10 @@ body {
   cursor: pointer;
 }
 
+i {
+  pointer-events: none;
+}
+
 .control-btn:hover {
   color: #21E521;
 }
