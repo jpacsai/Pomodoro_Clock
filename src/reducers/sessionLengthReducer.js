@@ -1,4 +1,4 @@
-export default function sessionLengthReducer(state = 5, action) {
+export default function sessionLengthReducer(state = 25, action) {
     
     switch(action.type) {
         case 'INCREMENT_SESSION':
