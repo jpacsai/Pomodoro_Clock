@@ -17,6 +17,11 @@ body {
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
+  padding: 10px;
+}
+
+h1 {
+  text-transform: uppercase;
 }
 
 .length-container {
