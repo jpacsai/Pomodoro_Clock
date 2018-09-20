@@ -7,6 +7,9 @@ export default function sessionLengthReducer(state = 25, action) {
         case 'DECREMENT_SESSION':
             return state - 1 === 0 ? 1 : --state;
 
+        case 'RESET':
+            return 25;
+
         default:
             return state;
     }

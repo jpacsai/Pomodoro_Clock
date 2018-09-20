@@ -7,6 +7,9 @@ export default function breakLengthReducer(state = 5, action) {
         case 'DECREMENT_BREAK':
             return state - 1 === 0 ? 1 : --state;
 
+        case 'RESET':
+            return 5;
+            
         default:
             return state;
     }
