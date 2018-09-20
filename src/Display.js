@@ -7,7 +7,7 @@ import activeAction from './actions/activeAction';
 class Display extends Component {
   render() {
 
-    const { resetAction, activeAction } = this.props;
+    const { resetAction, activeAction, active } = this.props;
 
     return (
         <div id='timer-container'>
@@ -19,7 +19,7 @@ class Display extends Component {
               onClick={() => {
                 activeAction();
               } }>
-            <i className="fas fa-pause"></i>
+            { active === true ? <i className="fas fa-pause"></i> : <i class="fas fa-play"></i> }
             </button>
             <button
               id='reset'
@@ -38,7 +38,7 @@ class Display extends Component {
 
 function mapStateToProps(state) {
 	return {
-
+    active: state.active
 	}
 }
 
