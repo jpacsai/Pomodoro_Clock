@@ -2,17 +2,23 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import resetAction from './actions/resetAction';
+import activeAction from './actions/activeAction';
 
 class Display extends Component {
   render() {
 
-    const { resetAction } = this.props;
+    const { resetAction, activeAction } = this.props;
 
     return (
         <div id='timer-container'>
           <div id='time-left'>5</div>
           <div id='timer-container-buttons'>
-            <button id='start_stop' className='control-btn'>
+            <button
+              id='start_stop'
+              className='control-btn'
+              onClick={() => {
+                activeAction();
+              } }>
             <i className="fas fa-pause"></i>
             </button>
             <button
@@ -38,7 +44,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-    resetAction
+    resetAction,
+    activeAction
 	}, dispatch);
 }
 
