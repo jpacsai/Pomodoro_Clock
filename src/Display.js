@@ -10,9 +10,12 @@ class Display extends Component {
 
     const { resetAction, activeAction, stopAction, active, display, sessionLength, breakLength } = this.props;
 
+    const min = display[0][0];
+    const sec = display[0][1];
+
     return (
         <div id='timer-container'>
-          <div id='time-left'>{(display[0][0] < 10 ? '0' + display[0][0] : display[0][0]) + ' : ' + (display[0][1] < 10 ? '0' + display[0][1] : display[0][1])}</div>
+          <div id='time-left'>{(min < 10 ? '0' + min : min) + ' : ' + (sec < 10 ? '0' + sec : sec)}</div>
           <div id='timer-container-buttons'>
             <button
               id='start_stop'
