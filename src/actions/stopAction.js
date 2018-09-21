@@ -1,5 +1,6 @@
-export default function stopAction() {
+export default function stopAction(sessionLength) {
     return {
-        type: 'STOP'
+        type: 'STOP',
+        sessionLength
     }
 }

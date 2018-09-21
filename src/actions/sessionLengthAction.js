@@ -4,7 +4,6 @@ export default function sessionLengthAction(event, action) {
 
     const actionType = action === 'count' || action === 'pause' ? 'FALSE' : 'TRUE';
 
-    console.log(direction + '_' + actionType + '  ' + action);
     return {
         type: direction + '_' + actionType
     }

@@ -8,7 +8,7 @@ import stopAction from './actions/stopAction';
 class Display extends Component {
   render() {
 
-    const { resetAction, activeAction, stopAction, active, display } = this.props;
+    const { resetAction, activeAction, stopAction, active, display, sessionLength } = this.props;
 
     return (
         <div id='timer-container'>
@@ -26,7 +26,7 @@ class Display extends Component {
               id='stop'
               className='control-btn'
               onClick={() => {
-                stopAction();
+                stopAction(sessionLength);
               } }>
               <i className="fas fa-stop"></i>
             </button>
@@ -48,7 +48,8 @@ class Display extends Component {
 function mapStateToProps(state) {
 	return {
     active: state.active,
-    display: state.display
+    display: state.display,
+    sessionLength: state.sessionLength
 	}
 }
 

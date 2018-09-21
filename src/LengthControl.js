@@ -18,7 +18,6 @@ class LengthControl extends Component {
                 id='session-decrement'
                 className='control-btn'
                 onClick={(event) => {
-                  console.log('action ' + action)
                   sessionLengthAction(event, action);
                 } }>
                 <i className="fas fa-angle-down"></i>
@@ -28,7 +27,6 @@ class LengthControl extends Component {
                 id='session-increment'
                 className='control-btn'
                 onClick={(event) => {
-                  console.log('action ' + action)
                   sessionLengthAction(event, action);
                 } }>
                 <i className="fas fa-angle-up"></i>

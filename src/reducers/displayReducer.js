@@ -12,6 +12,9 @@ export default function displayReducer(state = [25,0], action) {
             min = min - 1 === 0 ? min : --min;
             return [min, sec];
 
+        case 'STOP':
+            return [action.sessionLength, 0];
+
         case 'RESET':
             return [25, 0];
 
