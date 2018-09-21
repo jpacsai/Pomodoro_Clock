@@ -1,5 +1,5 @@
 export default function activeAction() {
     return {
-        type: 'SWITCH'
+        type: 'COUNT'
     }
 }
