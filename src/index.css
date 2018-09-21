@@ -56,8 +56,10 @@ h1 {
   align-items: center;
   font-size: 200%;
   background-color: #6a6a6a;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.842);
   border-radius: 3px;
   width: 50px;
+  box-shadow: inset 0 0 5px #000000b9;
 }
 
 .control-btn {
@@ -98,11 +100,13 @@ i {
   border-radius: 3px;
   height: 20%;
   width: 70%;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.842);
   margin-top: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 300%
+  font-size: 300%;
+  box-shadow: inset 0 0 5px #000000b9;
 }
 
 #timer-container-buttons {
@@ -117,4 +121,6 @@ i {
   background-color: #6a6a6a;
   border-radius: 3px;
   padding: 5px 10px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.842);
+  box-shadow: inset 0 0 5px #000000b9;
 }
