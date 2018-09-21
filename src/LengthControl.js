@@ -40,7 +40,7 @@ class LengthControl extends Component {
                 id='break-decrement'
                 className='control-btn'
                 onClick={(event) => {
-                  breakLengthAction(event);
+                  breakLengthAction(event, action);
                 } }>
                 <i className="fas fa-angle-down"></i>
               </button>
@@ -49,7 +49,7 @@ class LengthControl extends Component {
                 id='break-increment'
                 className='control-btn'
                 onClick={(event) => {
-                  breakLengthAction(event);
+                  breakLengthAction(event, action);
                 } }>
                 <i className="fas fa-angle-up"></i>
               </button>

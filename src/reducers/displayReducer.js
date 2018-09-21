@@ -15,7 +15,6 @@ export default function displayReducer(state = [[25,0],[5,0],'session'], action)
             sessionMin = sessionMin - 1 === 0 ? sessionMin : --sessionMin;
             return [[sessionMin,0],[breakMin,0],'session']
 
-        
         case 'STOP':
             return [[action.sessionLength, 0], [action.breakLength, 0], 'session'];
 

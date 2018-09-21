@@ -1,8 +1,10 @@
-export default function breakLengthAction(event) {
+export default function breakLengthAction(event, action) {
     
-    const type = event.target.id === 'break-increment' ? 'INCREMENT_BREAK' : 'DECREMENT_BREAK';
+    const direction = event.target.id === 'break-increment' ? 'INCREMENT_BREAK' : 'DECREMENT_BREAK';
+
+    const actionType = action === 'count' || action === 'pause' ? 'FALSE' : 'TRUE';
 
     return {
-        type
+        type: direction + '_' + actionType
     }
 }
