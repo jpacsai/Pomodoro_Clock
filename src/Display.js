@@ -5,6 +5,8 @@ import resetAction from './actions/resetAction';
 import activeAction from './actions/activeAction';
 import stopAction from './actions/stopAction';
 
+let timing = null;
+
 class Display extends Component {
   render() {
 
@@ -12,6 +14,15 @@ class Display extends Component {
 
     const min = display[0][0];
     const sec = display[0][1];
+
+    if (active === 'count') {
+      timing = setInterval(() => {
+        console.log('hello')
+      },1000);
+    }
+    else {
+      clearInterval(timing);
+    }
 
     return (
         <div id='timer-container'>
