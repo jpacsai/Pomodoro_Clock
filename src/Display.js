@@ -19,7 +19,12 @@ class Display extends Component {
               onClick={() => {
                 activeAction();
               } }>
-            { active === true ? <i className="fas fa-pause"></i> : <i className="fas fa-play"></i> }
+            { active === 'count' ? <i className="fas fa-pause"></i> : <i className="fas fa-play"></i> }
+            </button>
+            <button
+              id='stop'
+              className='control-btn'>
+              <i className="fas fa-stop"></i>
             </button>
             <button
               id='reset'
