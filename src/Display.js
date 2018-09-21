@@ -7,11 +7,11 @@ import activeAction from './actions/activeAction';
 class Display extends Component {
   render() {
 
-    const { resetAction, activeAction, active } = this.props;
+    const { resetAction, activeAction, active, display } = this.props;
 
     return (
         <div id='timer-container'>
-          <div id='time-left'>5</div>
+          <div id='time-left'>{(display[0] < 10 ? '0' + display[0] : display[0]) + ' : ' + (display[1] < 10 ? '0' + display[1] : display[1])}</div>
           <div id='timer-container-buttons'>
             <button
               id='start_stop'
@@ -43,7 +43,8 @@ class Display extends Component {
 
 function mapStateToProps(state) {
 	return {
-    active: state.active
+    active: state.active,
+    display: state.display
 	}
 }
 
