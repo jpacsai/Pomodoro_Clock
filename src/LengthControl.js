@@ -7,7 +7,7 @@ import breakLengthAction from './actions/breakLengthAction';
 class LengthControl extends Component {
   render() {
 
-    const { breakLengthAction, breakLength, sessionLengthAction, sessionLength } = this.props;
+    const { breakLengthAction, breakLength, sessionLengthAction, sessionLength, action } = this.props;
 
     return (
         <div className='length-container'>
@@ -18,7 +18,8 @@ class LengthControl extends Component {
                 id='session-decrement'
                 className='control-btn'
                 onClick={(event) => {
-                  sessionLengthAction(event);
+                  console.log('action ' + action)
+                  sessionLengthAction(event, action);
                 } }>
                 <i className="fas fa-angle-down"></i>
               </button>
@@ -27,7 +28,8 @@ class LengthControl extends Component {
                 id='session-increment'
                 className='control-btn'
                 onClick={(event) => {
-                  sessionLengthAction(event);
+                  console.log('action ' + action)
+                  sessionLengthAction(event, action);
                 } }>
                 <i className="fas fa-angle-up"></i>
               </button>
@@ -62,6 +64,7 @@ class LengthControl extends Component {
 
 function mapStateToProps(state) {
 	return {
+    action: state.active,
     sessionLength: state.sessionLength,
     breakLength: state.breakLength
 	}

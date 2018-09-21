@@ -78,6 +78,10 @@ i {
   color: #21E521;
 }
 
+.control-btn:active {
+  color: #107c10;
+}
+
 #timer-container {
   height: 55%;
   width: 55%;
