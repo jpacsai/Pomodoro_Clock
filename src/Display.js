@@ -8,11 +8,11 @@ import stopAction from './actions/stopAction';
 class Display extends Component {
   render() {
 
-    const { resetAction, activeAction, stopAction, active, display, sessionLength } = this.props;
+    const { resetAction, activeAction, stopAction, active, display, sessionLength, breakLength } = this.props;
 
     return (
         <div id='timer-container'>
-          <div id='time-left'>{(display[0] < 10 ? '0' + display[0] : display[0]) + ' : ' + (display[1] < 10 ? '0' + display[1] : display[1])}</div>
+          <div id='time-left'>{(display[0][0] < 10 ? '0' + display[0][0] : display[0][0]) + ' : ' + (display[0][1] < 10 ? '0' + display[0][1] : display[0][1])}</div>
           <div id='timer-container-buttons'>
             <button
               id='start_stop'
@@ -26,7 +26,7 @@ class Display extends Component {
               id='stop'
               className='control-btn'
               onClick={() => {
-                stopAction(sessionLength);
+                stopAction(sessionLength, breakLength);
               } }>
               <i className="fas fa-stop"></i>
             </button>
@@ -49,7 +49,8 @@ function mapStateToProps(state) {
 	return {
     active: state.active,
     display: state.display,
-    sessionLength: state.sessionLength
+    sessionLength: state.sessionLength,
+    breakLength: state.breakLength
 	}
 }
 
