@@ -4,20 +4,21 @@ import { connect } from 'react-redux';
 import resetAction from './actions/resetAction';
 import activeAction from './actions/activeAction';
 import stopAction from './actions/stopAction';
+import tickAction from './actions/tickAction';
 
 let timing = null;
 
 class Display extends Component {
   render() {
 
-    const { resetAction, activeAction, stopAction, active, display, sessionLength, breakLength } = this.props;
+    const { resetAction, activeAction, stopAction, active, display, sessionLength, breakLength, tickAction } = this.props;
 
     const min = display[0][0];
     const sec = display[0][1];
 
     if (active === 'count') {
       timing = setInterval(() => {
-        console.log('hello')
+        tickAction();
       },1000);
     }
     else {
@@ -72,7 +73,8 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
     resetAction,
     activeAction,
-    stopAction
+    stopAction,
+    tickAction
 	}, dispatch);
 }
 
