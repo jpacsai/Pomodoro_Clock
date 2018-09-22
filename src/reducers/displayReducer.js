@@ -1,51 +1,52 @@
-let timing = null;
-
-export default function displayReducer(state = [[25,0],[5,0],'session'], action) {
-
-    let sessionMin = state[0][0];
-    let sessionSec = state[0][1];
-    let breakMin = state[1][0];
-    let breakSec = state[1][1];
-    let processType = state[2];
+export default function displayReducer(state = {
+    sessionDisplay: {
+        min: 25,
+        sec: 0
+    },
+    breakDisplay: {
+        min: 5,
+        sec: 0
+    },
+    sessionSet: 25,
+    breakSet: 5,
+    type: 'session'
+}, action) {
 
     switch(action.type) {
-
         case 'TICK':
-        /*
-            if (processType === 'session') {
-                if (sessionSec === 0 && sessionMin - 1 === 0) {
-                    processType = 'break';
-                }
-                else {
-  
-                }
-            }
-            else {
-                if (breakSec === 0 && breakMin - 1 === 0) {
-                    processType = 'session';   
-                                 
-                }
-            }
-        */
-            sessionMin = sessionSec === 0 ? sessionMin === 0 ? 59 : --sessionMin : sessionMin;
-            sessionSec = sessionSec === 0 ? 59 : --sessionSec;
-            return [[sessionMin,sessionSec],[breakMin,0],'session'];
+            let tick = Object.assign({}, state);
+            tick.sessionDisplay.min = tick.sessionDisplay.sec === 0 ? tick.sessionDisplay.min === 0 ? 59 : tick.sessionDisplay.min-- : tick.sessionDisplay.min;
+            tick.sessionDisplay.sec = tick.sessionDisplay.sec === 0 ? 59 : tick.sessionDisplay.sec--;
+            console.log('tick');
+            return tick;
 
         case 'INCREMENT_SESSION_TRUE':
-            sessionMin = sessionMin + 1 > 60 ? sessionMin : ++sessionMin;
-            return [[sessionMin,0],[breakMin,0],'session'];
+            let incrTrue = Object.assign({}, state);
+            incrTrue.sessionSet = incrTrue.sessionSet + 1 > 60 ? incrTrue.sessionSet : incrTrue.sessionSet++;
+            return incrTrue;
 
         case 'DECREMENT_SESSION_TRUE':
-            sessionMin = sessionMin - 1 === 0 ? sessionMin : --sessionMin;
-            return [[sessionMin,0],[breakMin,0],'session'];
+            let decrTrue = Object.assign({}, state);
+            decrTrue.sessionSet = decrTrue.sessionSet - 1 === 0 ? decrTrue.sessionSet : decrTrue.sessionSet--;
+            return decrTrue;
 
         case 'STOP':
-            clearInterval(timing);
-            return [[action.sessionLength, 0], [action.breakLength, 0], 'session'];
+            let stop = Object.assign({}, state);
+            stop.sessionDisplay.min = stop.sessionSet;
+            stop.sessionDisplay.sec = 0
+            stop.breakDisplay.min = stop.breakSet;
+            stop.breakDisplay.sec = 0;
+            return stop;
 
         case 'RESET':
-            clearInterval(timing);
-            return [[25,0], [5,0], 'session'];
+            let reset = Object.assign({}, state);
+            reset.sessionDisplay.min = 25;
+            reset.sessionDisplay.sec = 0;
+            reset.breakDisplay.min = 5;
+            reset.breakDisplay.sec = 0;
+            reset.sessionSet = 25;
+            reset.breakSet = 5;
+            return reset;
 
         default:
             return state;
