@@ -18,6 +18,9 @@ export default function displayReducer(state = {
 
             if (tick.display.min === 0 && tick.display.sec === 0) {
                 tick.type = tick.type === 'session' ? 'break' : 'session';
+                const s = new Audio ('./alarm_beep.mp3');
+                s.currentTime = 0;
+                s.play();
                 tick.display.min = tick.type === 'session' ? tick.sessionSet : tick.breakSet;
             }
 
