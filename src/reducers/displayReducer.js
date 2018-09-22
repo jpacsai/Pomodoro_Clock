@@ -45,6 +45,16 @@ export default function displayReducer(state = {
             decrFalse.sessionSet = decrFalse.sessionSet - 1 === 0 ? decrFalse.sessionSet : --decrFalse.sessionSet;
             return decrFalse;
 
+        case 'INCREMENT_BREAK':
+            let incrBrFalse = Object.assign({}, state);
+            incrBrFalse.breakSet = incrBrFalse.breakSet + 1 > 60 ? incrBrFalse.breakSet : ++incrBrFalse.breakSet;
+            return incrBrFalse;
+
+        case 'DECREMENT_BREAK':
+            let decrBrFalse = Object.assign({}, state);
+            decrBrFalse.breakSet = decrBrFalse.breakSet - 1 === 0 ? decrBrFalse.breakSet : --decrBrFalse.breakSet;
+            return decrBrFalse;
+
         case 'STOP':
             let stop = Object.assign({}, state);
             stop.display.min = stop.sessionSet;
