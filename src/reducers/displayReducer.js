@@ -1,10 +1,6 @@
 export default function displayReducer(state = {
-    sessionDisplay: {
+    display: {
         min: 25,
-        sec: 0
-    },
-    breakDisplay: {
-        min: 5,
         sec: 0
     },
     sessionSet: 25,
@@ -15,20 +11,28 @@ export default function displayReducer(state = {
     switch(action.type) {
         case 'TICK':
             let tick = Object.assign({}, state);
-            tick.sessionDisplay.min = tick.sessionDisplay.sec === 0 ? tick.sessionDisplay.min === 0 ? 59 : --tick.sessionDisplay.min : tick.sessionDisplay.min;
-            tick.sessionDisplay.sec = tick.sessionDisplay.sec === 0 ? 59 : --tick.sessionDisplay.sec;
+
+                tick.display.min = tick.display.sec === 0 ? tick.display.min === 0 ? 59 : --tick.display.min : tick.display.min;
+
+                tick.display.sec = tick.display.sec === 0 ? 59 : --tick.display.sec;
+
+            if (tick.display.min === 0 && tick.display.sec === 0) {
+                tick.type = tick.type === 'session' ? 'break' : 'session';
+                tick.display.min = tick.type === 'session' ? tick.sessionSet : tick.breakSet;
+            }
+
             return tick;
 
         case 'INCREMENT_SESSION_TRUE':
             let incrTrue = Object.assign({}, state);
             incrTrue.sessionSet = incrTrue.sessionSet + 1 > 60 ? incrTrue.sessionSet : ++incrTrue.sessionSet;
-            incrTrue.sessionDisplay.min = incrTrue.sessionSet;
+            incrTrue.display.min = incrTrue.sessionSet;
             return incrTrue;
 
         case 'DECREMENT_SESSION_TRUE':
             let decrTrue = Object.assign({}, state);
             decrTrue.sessionSet = decrTrue.sessionSet - 1 === 0 ? decrTrue.sessionSet : --decrTrue.sessionSet;
-            decrTrue.sessionDisplay.min = decrTrue.sessionSet;
+            decrTrue.display.min = decrTrue.sessionSet;
             return decrTrue;
 
         case 'INCREMENT_SESSION_FALSE':
@@ -43,20 +47,18 @@ export default function displayReducer(state = {
 
         case 'STOP':
             let stop = Object.assign({}, state);
-            stop.sessionDisplay.min = stop.sessionSet;
-            stop.sessionDisplay.sec = 0;
-            stop.breakDisplay.min = stop.breakSet;
-            stop.breakDisplay.sec = 0;
+            stop.display.min = stop.sessionSet;
+            stop.display.sec = 0;
+            stop.type = 'session';
             return stop;
 
         case 'RESET':
             let reset = Object.assign({}, state);
-            reset.sessionDisplay.min = 25;
-            reset.sessionDisplay.sec = 0;
-            reset.breakDisplay.min = 5;
-            reset.breakDisplay.sec = 0;
+            reset.display.min = 25;
+            reset.display.sec = 0;
             reset.sessionSet = 25;
             reset.breakSet = 5;
+            reset.type = 'session';
             return reset;
 
         default:

@@ -7,7 +7,7 @@ export default function timer(status) {
     if (timerOn === false && status === 'count') {
         return (dispatch) => {
             clearInterval(timing);
-            timing = setInterval(() => dispatch(tick()), 1000);
+            timing = setInterval(() => dispatch(tick()), 200);
             dispatch({ type: 'TIMER_START' });
           }
     }
@@ -19,8 +19,6 @@ export default function timer(status) {
             type: 'TIMER_STOP'
         }
     }
-
-    
 }
 
 function tick() {

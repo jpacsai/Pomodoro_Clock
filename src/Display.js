@@ -11,8 +11,8 @@ class Display extends Component {
 
     const { resetAction, activeAction, stopAction, active, display, sessionLength, breakLength, timer } = this.props;
 
-    const min = display.type === 'session' ? display.sessionDisplay.min : display.breakDisplay.min;
-    const sec = display.type === 'session' ? display.sessionDisplay.sec : display.breakDisplay.sec;
+    const min = display.display.min;
+    const sec = display.display.sec;
 
     return (
         <div id='timer-container'>
