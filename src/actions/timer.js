@@ -9,7 +9,7 @@ export default function timer(status) {
             clearInterval(timing);
             timing = setInterval(() => dispatch(tick()), 1000);
             dispatch({ type: 'TIMER_START' });
-          }
+        }
     }
     else {
         clearInterval(timing);

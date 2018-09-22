@@ -47,7 +47,7 @@ class Display extends Component {
               <i className="fas fa-redo"></i>
             </button>
           </div>
-          <h2 id='timer-label'>Session</h2>
+          <h2 id='timer-label'>{display.type}</h2>
         </div>
     );
   }
