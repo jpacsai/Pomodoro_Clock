@@ -1,4 +1,3 @@
-import tickAction from './tickAction';
 let timing = null;
 let timerOn = false;
 
@@ -6,13 +5,6 @@ export default function timer(status) {
     status = status === 'count' ? 'pause' : status === 'pause' ? 'count' : 'stop';
 
     if (timerOn === false && status === 'count') {
-        /*timing = setInterval(() => {
-          timerOn = true;
-            return (dispatch) => {
-                
-                dispatch(tickAction());
-            }
-        },1000);*/
         return (dispatch) => {
             clearInterval(timing);
             timing = setInterval(() => dispatch(tick()), 1000);
