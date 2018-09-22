@@ -1,5 +1,5 @@
 export default function tickAction() {
-    console.log('tick');
+    console.log('tick')
     return {
         type: 'TICK'
     }

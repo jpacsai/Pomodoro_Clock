@@ -4,26 +4,15 @@ import { connect } from 'react-redux';
 import resetAction from './actions/resetAction';
 import activeAction from './actions/activeAction';
 import stopAction from './actions/stopAction';
-import tickAction from './actions/tickAction';
-
-let timing = null;
+import timer from './actions/timer';
 
 class Display extends Component {
   render() {
 
-    const { resetAction, activeAction, stopAction, active, display, sessionLength, breakLength, tickAction } = this.props;
+    const { resetAction, activeAction, stopAction, active, display, sessionLength, breakLength, timer } = this.props;
 
     const min = display[0][0];
     const sec = display[0][1];
-
-    if (active === 'count') {
-      timing = setInterval(() => {
-        tickAction();
-      },1000);
-    }
-    else {
-      clearInterval(timing);
-    }
 
     return (
         <div id='timer-container'>
@@ -34,6 +23,8 @@ class Display extends Component {
               className='control-btn'
               onClick={() => {
                 activeAction();
+                const status = active === 'count' ? 'count' : 'pause';
+                timer(status);
               } }>
             { active === 'count' ? <i className="fas fa-pause"></i> : <i className="fas fa-play"></i> }
             </button>
@@ -42,6 +33,7 @@ class Display extends Component {
               className='control-btn'
               onClick={() => {
                 stopAction(sessionLength, breakLength);
+                timer('stop');
               } }>
               <i className="fas fa-stop"></i>
             </button>
@@ -50,6 +42,7 @@ class Display extends Component {
               className='control-btn'
               onClick={() => {
                 resetAction();
+                timer('stop');
               } }>
               <i className="fas fa-redo"></i>
             </button>
@@ -74,7 +67,7 @@ function mapDispatchToProps(dispatch) {
     resetAction,
     activeAction,
     stopAction,
-    tickAction
+    timer
 	}, dispatch);
 }
 

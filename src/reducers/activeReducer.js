@@ -1,4 +1,4 @@
-export default function ActiveReducer(state = 'STOP', action) {
+export default function ActiveReducer(state = 'pause', action) {
 
     switch(action.type) {
         case 'COUNT':
