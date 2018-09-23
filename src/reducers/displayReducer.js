@@ -1,4 +1,8 @@
 export default function displayReducer(state = {
+    display: {
+        min: 25,
+        sec: 0
+    },
     sessionSet: 25,
     breakSet: 5,
     type: 'session'
@@ -7,7 +11,8 @@ export default function displayReducer(state = {
     const audioElem = document.getElementById('beep');
 
     switch(action.type) {
-        /*case 'TICK':
+        case 'TICK':
+            console.log('tick')
             let tick = Object.assign({}, state);
 
             if (tick.display.min === 0 && tick.display.sec === 0) {
@@ -31,7 +36,7 @@ export default function displayReducer(state = {
                     });
                 }
             }
-            return tick;*/
+            return tick;
 
         case 'INCREMENT_SESSION_TRUE':
             let incrTrue = Object.assign({}, state);

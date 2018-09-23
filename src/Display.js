@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import resetAction from './actions/resetAction';
 import activeAction from './actions/activeAction';
 import stopAction from './actions/stopAction';
-import timer from './actions/timer';
+import { startTimer } from './actions/startTimer';
+import { stopTimer } from './actions/stopTimer';
 
 class Display extends Component {
   render() {
 
-    const { resetAction, activeAction, stopAction, active, display, sessionLength, breakLength, timer } = this.props;
+    const { resetAction, activeAction, stopAction, active, display, sessionLength, breakLength, startTimer, stopTimer } = this.props;
 
     const min = display.display.min;
     const sec = display.display.sec;
@@ -25,7 +26,12 @@ class Display extends Component {
               onClick={() => {
                 activeAction();
                 const status = active === 'count' ? 'count' : 'pause';
-                timer(status);
+                if (status === 'pause') {
+                  startTimer();
+                }
+                else {
+                  stopTimer();
+                }
               } }>
             { active === 'count' ? <i className="fas fa-pause"></i> : <i className="fas fa-play"></i> }
             </button>
@@ -34,7 +40,7 @@ class Display extends Component {
               className='control-btn'
               onClick={() => {
                 stopAction(sessionLength, breakLength);
-                timer('stop');
+                stopTimer();
               } }>
               <i className="fas fa-stop"></i>
             </button>
@@ -43,7 +49,7 @@ class Display extends Component {
               className='control-btn'
               onClick={() => {
                 resetAction();
-                timer('stop');
+                stopTimer();
               } }>
               <i className="fas fa-redo"></i>
             </button>
@@ -68,7 +74,8 @@ function mapDispatchToProps(dispatch) {
     resetAction,
     activeAction,
     stopAction,
-    timer
+    startTimer,
+    stopTimer
 	}, dispatch);
 }
 
