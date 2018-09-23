@@ -4,7 +4,6 @@ import breakLengthReducer from './breakLengthReducer';
 import activeReducer from './activeReducer';
 import displayReducer from './displayReducer';
 
-
 export default combineReducers({
     sessionLength: sessionLengthReducer,
     breakLength: breakLengthReducer,
