@@ -9,6 +9,7 @@ class App extends Component {
     return (
       <div id='app'>
         <h1 className='title'>Pomodoro Clock</h1>
+        <hr />
         <LengthControl />
         <Display />
       </div>

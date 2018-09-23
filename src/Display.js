@@ -16,6 +16,7 @@ class Display extends Component {
 
     return (
         <div id='timer-container'>
+          <h2 id='timer-label'>{display.type}</h2>
           <div id='time-left'>{(min < 10 ? '0' + min : min) + ' : ' + (sec < 10 ? '0' + sec : sec)}</div>
           <div id='timer-container-buttons'>
             <button
@@ -47,7 +48,6 @@ class Display extends Component {
               <i className="fas fa-redo"></i>
             </button>
           </div>
-          <h2 id='timer-label'>{display.type}</h2>
           <audio className='clip' id='beep' src='https://res.cloudinary.com/jutzee/video/upload/v1537693352/FCC-pomodoro%20clock/alarm_beep.mp3' preload="auto"></audio>
         </div>
     );

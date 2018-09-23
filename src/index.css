@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500|Orbitron|Pacifico');
 
 body {
   height: 100vh;
@@ -23,11 +23,20 @@ button:focus {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px #6a6a6a;
 }
 
 h1 {
-  text-transform: uppercase;
+  font-size: 280%;
+  font-weight: 200;
+  font-family: Pacifico, Montserrat, sans-serif;
+  margin: 0;
+  text-shadow: 2px 2px 6px #6a6a6a;
+}
+
+hr {
+  width: 420px;
 }
 
 .length-container {
@@ -35,11 +44,19 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-top: 15px;
+}
+
+#session-container,
+#break-container {
+  width: 180px;
 }
 
 #break-label,
 #session-label {
   margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .length-set {
@@ -58,8 +75,9 @@ h1 {
   background-color: #6a6a6a;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.842);
   border-radius: 3px;
-  width: 50px;
+  width: 70px;
   box-shadow: inset 0 0 5px #000000b9;
+  font-family: Orbitron, sans-serif;
 }
 
 .control-btn {
@@ -70,6 +88,8 @@ h1 {
   background: none;
   border: none;
   cursor: pointer;
+  text-shadow: 2px 2px 5px #6a6a6a;
+  transition: 250ms;
 }
 
 i {
@@ -93,6 +113,7 @@ i {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 2px 2px 20px #6a6a6a;
 }
 
 #time-left {
@@ -101,12 +122,12 @@ i {
   height: 20%;
   width: 70%;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.842);
-  margin-top: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 300%;
   box-shadow: inset 0 0 5px #000000b9;
+  font-family: Orbitron, sans-serif;
+  font-size: 230%;
 }
 
 #timer-container-buttons {
@@ -120,7 +141,14 @@ i {
 #timer-label {
   background-color: #6a6a6a;
   border-radius: 3px;
-  padding: 5px 10px;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.842);
   box-shadow: inset 0 0 5px #000000b9;
+  width: 145px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 3px;
+  font-family: Orbitron, sans-serif;
+  margin-top: 0;
 }

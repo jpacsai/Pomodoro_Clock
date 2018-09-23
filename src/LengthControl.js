@@ -12,7 +12,7 @@ class LengthControl extends Component {
     return (
         <div className='length-container'>
           <section id='session-container'>
-            <h2 id='session-label'>Session length</h2>
+            <h2 id='session-label'>session length</h2>
             <div id='session-set'  className='length-set'>
               <button
                 id='session-decrement'
@@ -34,7 +34,7 @@ class LengthControl extends Component {
             </div>
           </section>
           <section id='break-container'>
-            <h2 id='break-label'>Break length</h2>
+            <h2 id='break-label'>break length</h2>
             <div id='break-set' className='length-set'>
               <button
                 id='break-decrement'
