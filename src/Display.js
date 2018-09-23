@@ -48,7 +48,7 @@ class Display extends Component {
             </button>
           </div>
           <h2 id='timer-label'>{display.type}</h2>
-          <audio className='clip' id='alarm' src='./alarm_beep.mp3' preload="auto"></audio>
+          <audio className='clip' id='beep' src='https://res.cloudinary.com/jutzee/video/upload/v1537693352/FCC-pomodoro%20clock/alarm_beep.mp3' preload="auto"></audio>
         </div>
     );
   }

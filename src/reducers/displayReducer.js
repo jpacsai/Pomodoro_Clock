@@ -8,27 +8,33 @@ export default function displayReducer(state = {
     type: 'session'
 }, action) {
 
+    const audioElem = document.getElementById('beep');
+
     switch(action.type) {
         case 'TICK':
             let tick = Object.assign({}, state);
 
-                tick.display.min = tick.display.sec === 0 ? tick.display.min === 0 ? 59 : --tick.display.min : tick.display.min;
-
-                tick.display.sec = tick.display.sec === 0 ? 59 : --tick.display.sec;
-
             if (tick.display.min === 0 && tick.display.sec === 0) {
                 tick.type = tick.type === 'session' ? 'break' : 'session';
-                var playPromise = document.querySelector('audio').play();
+                tick.display.min = tick.type === 'session' ? tick.sessionSet : tick.breakSet;
+                tick.display.sec = 0;
+            }
+            else {
+                tick.display.min = tick.display.sec === 0 ? --tick.display.min : tick.display.min;
+
+                tick.display.sec = tick.display.sec === 0 ? 59 : --tick.display.sec;
+            }
+            if (tick.display.min === 0 && tick.display.sec === 0) {
+                
+                let playPromise = audioElem.play();
                 if (playPromise !== undefined) {
                     playPromise.then(function() {
-                      // Automatic playback started!
+                      console.log('play')
                     }).catch(function(error) {
                       console.log('error with audio element')
                     });
                 }
-                tick.display.min = tick.type === 'session' ? tick.sessionSet : tick.breakSet;
             }
-
             return tick;
 
         case 'INCREMENT_SESSION_TRUE':
@@ -71,6 +77,8 @@ export default function displayReducer(state = {
             return stop;
 
         case 'RESET':
+            audioElem.pause();
+            audioElem.currentTime = 0;
             let reset = Object.assign({}, state);
             reset.display.min = 25;
             reset.display.sec = 0;
