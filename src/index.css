@@ -214,10 +214,11 @@ i {
   #timer-label {
     width: 145px;
     height: 40px;
+    font-size: 150%;
   }
 
   #time-left {
-    font-size: 230%;
+    font-size: 250%;
   }
 
   #timer-container-buttons {
