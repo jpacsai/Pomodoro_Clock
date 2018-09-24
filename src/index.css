@@ -1,13 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500|Orbitron|Pacifico');
 
+html {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #CECECE;
   font-family: Montserrat, sans-serif;
   color: white;
+  margin: 0;
 }
 
 button:focus {
@@ -15,20 +24,20 @@ button:focus {
 }
 
 #app {
-  width: 500px;
-  height: 500px;
+  width: 85vw;
+  height: 70vh;
   background-color: #FF4444;
   border-radius: 40px;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   padding: 20px;
   box-shadow: 0 0 10px #6a6a6a;
+  justify-content: space-evenly;
 }
 
 h1 {
-  font-size: 280%;
+  font-size: 220%;
   font-weight: 200;
   font-family: Pacifico, Montserrat, sans-serif;
   margin: 0;
@@ -36,15 +45,14 @@ h1 {
 }
 
 hr {
-  width: 420px;
+  width: 78%;
 }
 
 .length-container {
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 15px;
+  flex-direction: column;
+  align-items: center;
 }
 
 #session-container,
@@ -57,6 +65,7 @@ hr {
   margin: 0;
   display: flex;
   justify-content: center;
+  font-size: 100%;
 }
 
 .length-set {
@@ -67,11 +76,11 @@ hr {
 }
 
 .length-display {
-  margin: 10px;
+  margin: 7px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 200%;
+  font-size: 160%;
   background-color: #6a6a6a;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.842);
   border-radius: 3px;
@@ -105,10 +114,10 @@ i {
 }
 
 #timer-container {
-  height: 55%;
-  width: 55%;
+  height: 175px;
+  width: 175px;
   border-radius: 100%;
-  border: 10px solid white;
+  border: 7px solid white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -127,7 +136,9 @@ i {
   align-items: center;
   box-shadow: inset 0 0 5px #000000b9;
   font-family: Orbitron, sans-serif;
-  font-size: 230%;
+  font-size: 220%;
+  margin-top: 10px;
+  padding: 5px;
 }
 
 #timer-container-buttons {
@@ -135,7 +146,7 @@ i {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 #timer-label {
@@ -143,12 +154,74 @@ i {
   border-radius: 3px;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.842);
   box-shadow: inset 0 0 5px #000000b9;
-  width: 145px;
-  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-family: Orbitron, sans-serif;
-  margin-top: 0;
+  margin: 0;
+  font-size: 100%;
+  width: 95px;
+  height: 25px;
+}
+
+@media screen and (min-width: 480px) {
+
+  h1 {
+    font-size: 280%;
+  }
+
+  #break-label,
+  #session-label {
+    font-size: 150%;
+  }
+
+  .length-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  #timer-container {
+    height: 230px;
+    width: 230px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+
+  #app {
+    width: 500px;
+    height: 500px;
+  }
+
+  hr {
+    width: 420px;
+  }
+
+  .length-display {
+    font-size: 200%;
+    margin: 10px;
+  }
+
+  #timer-container {
+    height: 55%;
+    width: 55%;
+    border: 10px solid white;
+  }
+
+  #timer-label {
+    width: 145px;
+    height: 40px;
+  }
+
+  #time-left {
+    font-size: 230%;
+  }
+
+  #timer-container-buttons {
+    margin-top: 20px;
+  }
+
 }
