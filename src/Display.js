@@ -18,7 +18,7 @@ class Display extends Component {
     return (
         <div id='timer-container'>
           <h2 id='timer-label'>{display.type}</h2>
-          <div id='time-left'>{(min < 10 ? '0' + min : min) + ' : ' + (sec < 10 ? '0' + sec : sec)}</div>
+          <div id='time-left'>{(min < 10 ? '0' + min : min) + ':' + (sec < 10 ? '0' + sec : sec)}</div>
           <div id='timer-container-buttons'>
             <button
               id='start_stop'
