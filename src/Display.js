@@ -15,14 +15,18 @@ class Display extends Component {
     const min = display.display.min;
     const sec = display.display.sec;
 
+    const timerStyle = display.type === 'session' ? 'timer-container-red' : 'timer-container-red timer-container-green';
+
+    const timerButton = display.type === 'session' ? 'control-btn' : 'control-btn control-btn-red'
+
     return (
-        <div id='timer-container'>
+        <div id='timer-container' className={timerStyle}>
           <h2 id='timer-label'>{display.type}</h2>
           <div id='time-left'>{(min < 10 ? '0' + min : min) + ':' + (sec < 10 ? '0' + sec : sec)}</div>
           <div id='timer-container-buttons'>
             <button
               id='start_stop'
-              className='control-btn'
+              className={timerButton}
               onClick={() => {
                 activeAction();
                 const status = active === 'count' ? 'count' : 'pause';
@@ -37,7 +41,7 @@ class Display extends Component {
             </button>
             <button
               id='stop'
-              className='control-btn'
+              className={timerButton}
               onClick={() => {
                 stopAction(sessionLength, breakLength);
                 stopTimer();

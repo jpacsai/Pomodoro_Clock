@@ -109,11 +109,15 @@ i {
   color: #21E521;
 }
 
+.control-btn-red:hover {
+  color: #FF4444;
+}
+
 .control-btn:active {
   color: #107c10;
 }
 
-#timer-container {
+.timer-container-red {
   height: 175px;
   width: 175px;
   border-radius: 100%;
@@ -123,6 +127,10 @@ i {
   justify-content: center;
   align-items: center;
   box-shadow: 2px 2px 20px #6a6a6a;
+}
+
+.timer-container-green {
+  background-color: #33cc33;
 }
 
 #time-left {
