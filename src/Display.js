@@ -21,7 +21,12 @@ class Display extends Component {
 
     return (
         <div id='timer-container' className={timerStyle}>
-          <h2 id='timer-label'>{display.type}</h2>
+          <img
+            className='tomato-stem'
+            src='https://res.cloudinary.com/jutzee/image/upload/v1537871301/FCC-pomodoro%20clock/stem.png'
+            alt='tomato stem'>
+          </img>
+          <h2 className='tomato-stem' id='timer-label'>{display.type}</h2>
           <div id='time-left'>{(min < 10 ? '0' + min : min) + ':' + (sec < 10 ? '0' + sec : sec)}</div>
           <div id='timer-container-buttons'>
             <button
