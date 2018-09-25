@@ -21,7 +21,7 @@ The task was to fulfill the [user stories](https://learn.freecodecamp.org/front-
 * [Credits](#-credits)
 
 ## 🔗 Live link  
-Open the page directly from [here](https://jpacsai.github.io/drum-machine-app/)  
+Open the page directly from [here](https://jpacsai.github.io/Pomodoro_Clock/)  
 
 ## 🏁 Getting Started
 
