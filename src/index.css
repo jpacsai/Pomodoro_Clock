@@ -32,7 +32,7 @@ button:focus {
   align-items: center;
   flex-direction: column;
   padding: 20px;
-  box-shadow: 0 0 10px #6a6a6a;
+  box-shadow: 0 0 10px #b1170f;
   justify-content: space-evenly;
 }
 
@@ -41,7 +41,7 @@ h1 {
   font-weight: 200;
   font-family: Pacifico, Montserrat, sans-serif;
   margin: 0;
-  text-shadow: 2px 2px 6px #6a6a6a;
+  text-shadow: 2px 2px 6px #b1170f;
 }
 
 hr {
@@ -97,7 +97,7 @@ hr {
   background: none;
   border: none;
   cursor: pointer;
-  text-shadow: 2px 2px 5px #6a6a6a;
+  text-shadow: 2px 2px 5px #b1170f;
   transition: 250ms;
 }
 
@@ -110,7 +110,7 @@ i {
 }
 
 .control-btn-red:hover {
-  color: #FF4444;
+  color: #b1170f;
 }
 
 .control-btn:active {
@@ -126,7 +126,7 @@ i {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 2px 2px 20px #6a6a6a;
+  box-shadow: 0 0 30px #b1170f;
 }
 
 .timer-container-green {
